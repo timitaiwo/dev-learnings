@@ -1,4 +1,4 @@
-I am breaking down and exploring the 3FS code codebase to understand how high performance/low-latency software like it is written and what I can learn from it. The original readme is [here](https://github.com/deepseek-ai/3FS/blob/main/README.md)
+I am breaking down and exploring the 3FS code codebase to understand how high performance/low-latency software like it is written and what I can learn from it. The original readme is [here](https://github.com/timitaiwo/deepseek-3FS/blob/main/README.md)
 
 The project added the below libraries as submodules. Note that in addition to the docs I used AI to assist me in understanding the codebase,
 
