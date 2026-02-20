@@ -2,39 +2,35 @@ I am breaking down and exploring the 3FS code codebase to understand how high pe
 
 The project added the below libraries as submodules. Note that in addition to the docs I used AI to assist me in understanding the codebase,
 
-Core Infra and utilites
-1. [Folly](https://github.com/facebook/folly)
-2. [fmt](https://github.com/fmtlib/fmt)
-3. [scnlib](https://github.com/eliaskosunen/scnlib)
-4. [zstd](https://github.com/facebook/zstd)
 
-Memory Allocators
-1. [mimalloc](https://github.com/microsoft/mimalloc)
-2. [jemalloc](https://github.com/jemalloc/jemalloc) (archived)
+File/Stream Processing
+1. [Toml11](https://github.com/ToruNiina/toml11) - https://github.com/ToruNiina/toml11 - TOML file processing 
+2. [fmt](https://github.com/fmtlib/fmt) - https://github.com/fmtlib/fmt - output stream replacement
+3. [scnlib](https://github.com/eliaskosunen/scnlib) - https://github.com/eliaskosunen/scnlib - input stream replacement
 
-Low-level IO
-1. [liburing](https://github.com/axboe/liburing)
-
-Data Storage Layer
-1. [RocksDB](https://github.com/facebook/rocksdb) (fork of leveldb)
-2. [LevelDB](https://github.com/google/leveldb)
 
 Testing
-1. [GoogleTest](https://github.com/google/googletest)
-2. [GTest Parallel](https://github.com/google/gtest-parallel)
-3. [Toml11](https://github.com/ToruNiina/toml11)
+1. [GoogleTest](https://github.com/google/googletest) - https://github.com/google/googletest - unit testing and mocking
+2. [GTest Parallel](https://github.com/google/gtest-parallel) - https://github.com/google/gtest-parallel - run gtest binaries in parallel
+
+
+Core Infra and utilites
+1. [Folly](https://github.com/facebook/folly) - https://github.com/facebook/folly - specialized data structures
+2. [zstd](https://github.com/facebook/zstd) - https://github.com/facebook/zstd - compression algorithm
+3. [mimalloc](https://github.com/microsoft/mimalloc) - https://github.com/microsoft/mimalloc - performant memory allocator
+4. [jemalloc](https://github.com/jemalloc/jemalloc) (archived)
+
+
+Low-level IO
+1. [liburing](https://github.com/axboe/liburing) - https://github.com/axboe/liburing 
+
+
+Data Storage Layer
+1. [RocksDB](https://github.com/facebook/rocksdb) (fork of leveldb) - https://github.com/facebook/rocksdb - KV store
+2. [LevelDB](https://github.com/google/leveldb) - https://github.com/google/leveldb - KV store
 
 
 Interopatability
-1. [PyBind11](https://github.com/pybind/pybind11)
+1. [PyBind11](https://github.com/pybind/pybind11) - https://github.com/pybind/pybind11 - bind python to c++ code
 2. [Clickhouse Client](https://github.com/ClickHouse/clickhouse-cpp?tab=readme-ov-file)
 
-
-What the libraries are good for
-1. High-Performance (Folley, mimalloc/jemalloc, liburing): It's designed for concurrency, high I/O throughput, and has highly optimized memory management.
-
-2. Data-Intensive (RocksDB/LevelDB, ClickHouse-CPP, Zstd): It reads, writes, and compresses data, and connects to a high-speed analytical database.
-
-3. Well-Engineered (Googletest, fmt, scnlib): The code is built on a solid testing foundation and uses modern, type-safe utility libraries.
-
-4. Extensible (pybind11): It's designed to be usable and accessible from Python, which is great for scripting, data analysis, or machine learning integration.
