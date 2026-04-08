@@ -1,6 +1,4 @@
-Initially started as I explored the 3FS code codebase to understand how high performance/low-latency software like it is written and what I can learn from it. Not it is a collection of C/C++ projects that I would like to learn more about.
-
-The original readme is [here](https://github.com/timitaiwo/deepseek-3FS/blob/main/README.md)
+Initially started as I explored the 3FS code codebase to understand how high performance/low-latency distributed systems are written in systems programming languages and what I can learn from it. Now it is a collection of C/C++ projects that I would like to learn more about.
 
 
 File/Stream Processing
@@ -17,9 +15,10 @@ Testing
 
 Core Infra and utilites
 1. [Folly](https://github.com/facebook/folly) - https://github.com/facebook/folly - specialized data structures
-2. [zstd](https://github.com/facebook/zstd) - https://github.com/facebook/zstd - compression algorithm
-3. [mimalloc](https://github.com/microsoft/mimalloc) - https://github.com/microsoft/mimalloc - performant memory allocator
-4. [jemalloc](https://github.com/jemalloc/jemalloc) 
+2. [Abseil](https://abseil.io/) - google equivalent to folly I guess 
+3. [zstd](https://github.com/facebook/zstd) - https://github.com/facebook/zstd - compression algorithm
+4. [mimalloc](https://github.com/microsoft/mimalloc) - https://github.com/microsoft/mimalloc - performant memory allocator
+5. [jemalloc](https://github.com/jemalloc/jemalloc) 
 
 
 Low-level IO
