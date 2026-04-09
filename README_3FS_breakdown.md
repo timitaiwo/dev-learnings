@@ -18,7 +18,7 @@ Core Infra and utilites
 2. [Abseil](https://abseil.io/) - google equivalent to folly I guess 
 3. [zstd](https://github.com/facebook/zstd) - https://github.com/facebook/zstd - compression algorithm
 4. [mimalloc](https://github.com/microsoft/mimalloc) - https://github.com/microsoft/mimalloc - performant memory allocator
-5. [jemalloc](https://github.com/jemalloc/jemalloc) 
+5. [jemalloc](https://github.com/jemalloc/jemalloc) - performant memory allocator
 
 
 Low-level IO
@@ -28,11 +28,12 @@ Low-level IO
 Data Storage Layer
 1. [RocksDB](https://github.com/facebook/rocksdb) (fork of leveldb) - https://github.com/facebook/rocksdb - KV store
 2. [LevelDB](https://github.com/google/leveldb) - https://github.com/google/leveldb - KV store
-3. [FoundationDB](https://www.foundationdb.org/) - Used for metadata storage in Deepseek's 3FS and HRT's Bloobly
+3. [FoundationDB](https://www.foundationdb.org/) - highly consistent db - Used for metadata storage in Deepseek's 3FS and HRT's Blooby
+4. [Clickhouse](https://clickhouse.com/) - long term storage of metrics
+5. [Clickhouse Client](https://github.com/ClickHouse/clickhouse-cpp?tab=readme-ov-file)
 
 Interopatability
 1. [PyBind11](https://github.com/pybind/pybind11) - https://github.com/pybind/pybind11 - bind python to c++ code
-2. [Clickhouse Client](https://github.com/ClickHouse/clickhouse-cpp?tab=readme-ov-file)
 
 
 
@@ -49,7 +50,7 @@ Other  Stuff
 
 Graphics System Programming 
 
-[HipScript](https://github.com/lights0123/hipscript) - https://github.com/lights0123/hipscript - CUDA/HIP in the browser
+[HipScript](https://github.com/lights0123/hipscr)ipt) - https://github.com/lights0123/hipscript - CUDA/HIP in the browser
 
 [SPIRV-Tools](https://github.com/KhronosGroup/SPIRV-Tools) - https://github.com/KhronosGroup/SPIRV-Tools - tools for working with spir-v e.g assembler, disassembler, validator etc.
 
