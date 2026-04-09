@@ -28,7 +28,7 @@ Low-level IO
 Data Storage Layer
 1. [RocksDB](https://github.com/facebook/rocksdb) (fork of leveldb) - https://github.com/facebook/rocksdb - KV store
 2. [LevelDB](https://github.com/google/leveldb) - https://github.com/google/leveldb - KV store
-
+3. [FoundationDB](https://www.foundationdb.org/) - Used for metadata storage in Deepseek's 3FS and HRT's Bloobly
 
 Interopatability
 1. [PyBind11](https://github.com/pybind/pybind11) - https://github.com/pybind/pybind11 - bind python to c++ code
