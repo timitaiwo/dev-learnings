@@ -19,6 +19,7 @@ Core Infra and utilites
 3. [zstd](https://github.com/facebook/zstd) - https://github.com/facebook/zstd - compression algorithm
 4. [mimalloc](https://github.com/microsoft/mimalloc) - https://github.com/microsoft/mimalloc - performant memory allocator
 5. [jemalloc](https://github.com/jemalloc/jemalloc) - performant memory allocator
+6. [seastar](https://seastar.io/) - framework to build high performance, high throughput asynchronous workloads - built for SycllaDB
 
 
 Low-level IO
