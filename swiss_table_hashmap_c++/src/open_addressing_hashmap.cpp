@@ -1,3 +1,5 @@
+#include <functional>
+
 template<typename K, typename V>
 class open_addr_hash_map {
 public:
@@ -8,7 +10,7 @@ public:
         size_t slot = get_slot(key);
         
         for (auto it = _backing_array.begin() + slot; it != _backing_array.end(); it++) {
-            if (it->state == entry_state.FILLED && it->key == key) {
+            if (it->state == entry_state::FILLED && it->key == key) {
                 return it->value;
             }
         }
@@ -22,8 +24,8 @@ public:
         size_t slot = get_slot(key);
 
         for (auto it = _backing_array.begin() + slot; it != _backing_array.end(); it++) {
-            if ( it->state == entry_state.FILLED && it->key == key) {
-                it->is_filled = entry_state.DELETED;
+            if ( it->state == entry_state::FILLED && it->key == key) {
+                it->is_filled = entry_state::DELETED;
                 break;
             }
         }
@@ -36,13 +38,13 @@ public:
 
         bool updated_value = false;
         add: for (auto it = _backing_array.begin() + slot; it != _backing_array.end(); it++) {
-            if ( it->state == entry_state.FILLED && it->key == key) {
+            if ( it->state == entry_state::FILLED && it->key == key) {
                 it->value = value;
                 updated_value = true;
             }
             
-            if (it->state != entry_state.FILLED ) {
-                *it = array_entry{entry_state.FILLED, key, value};
+            if (it->state != entry_state::FILLED ) {
+                *it = hash_map_entry{entry_state::FILLED, key, value};
                 updated_value = true;
             }
 
@@ -66,7 +68,7 @@ private:
         EMPTY,
         FILLED,
         DELETED
-    }
+    };
 
     struct hash_map_entry {
          entry_state state;
@@ -75,7 +77,7 @@ private:
     };
     
     std::hash<K> hasher;
-    std::vector<array_entry> _backing_array;
+    std::vector<hash_map_entry> _backing_array;
 
     size_t get_slot(K key) {
         return hasher(key) % _backing_array.capacity();
