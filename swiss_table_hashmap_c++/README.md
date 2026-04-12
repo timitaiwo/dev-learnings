@@ -4,3 +4,5 @@ The Go programming language also has a description [here](https://go.dev/blog/sw
 
 
 It was described in a CppCon talk recorded [here](https://www.youtube.com/watch?v=ncHmEUmJZf4)
+
+The open addressing linear probing hashmap is WIP and has some bugs 
