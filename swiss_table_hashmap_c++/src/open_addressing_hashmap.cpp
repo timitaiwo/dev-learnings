@@ -8,7 +8,7 @@ public:
         size_t slot = get_slot(key);
         
         for (auto it = _backing_array.begin() + slot; it != _backing_array.end(); it++) {
-            if (it->key == key) {
+            if (it->state == entry_state.FILLED && it->key == key) {
                 return it->value;
             }
         }
@@ -22,8 +22,8 @@ public:
         size_t slot = get_slot(key);
 
         for (auto it = _backing_array.begin() + slot; it != _backing_array.end(); it++) {
-            if (it->key == key) {
-                it->is_filled = false;
+            if ( it->state == entry_state.FILLED && it->key == key) {
+                it->is_filled = entry_state.DELETED;
                 break;
             }
         }
@@ -36,13 +36,13 @@ public:
 
         bool updated_value = false;
         add: for (auto it = _backing_array.begin() + slot; it != _backing_array.end(); it++) {
-            if (it->key == key) {
+            if ( it->state == entry_state.FILLED && it->key == key) {
                 it->value = value;
                 updated_value = true;
             }
             
-            if (!(it->is_filled)) {
-                *it = array_entry{true, key, value};
+            if (it->state != entry_state.FILLED ) {
+                *it = array_entry{entry_state.FILLED, key, value};
                 updated_value = true;
             }
 
@@ -51,7 +51,7 @@ public:
         
         if (updated_value) return true;
         else {
-            _backing_array.resize(_backing_array.capacity() * 2);
+            _backing_array.resize(_backing_array.capacity() * 1.5);
             goto add;
         }
         
@@ -62,8 +62,14 @@ public:
 private:
     static constexpr int _default_capacity = 1;
 
-    struct array_entry {
-         bool is_filled;
+    enum entry_state {
+        EMPTY,
+        FILLED,
+        DELETED
+    }
+
+    struct hash_map_entry {
+         entry_state state;
          K key;
          V value;
     };
