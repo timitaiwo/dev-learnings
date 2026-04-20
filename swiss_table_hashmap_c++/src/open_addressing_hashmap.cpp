@@ -1,4 +1,42 @@
 #include <functional>
+#include <cstdint>
+
+
+// Used the MurmurHash3 suggested by Gemini
+template <typename K, typename Enable = void>
+struct HftHash;
+
+template <typename K>
+struct HftHash<K, std::enable_if_t<std::is_integral_v<K>>> {
+    std::size_t operator()(K key) const noexcept {
+        size_t x = static_cast<uint64_t>(key);
+
+        x ^= x >> 33;
+        x *= 0xff51afd7ed558ccdULL;
+        x ^= x >> 33;
+        x *= 0xc4ceb9fe1a85ec53ULL;
+        x ^= x >> 33;
+        
+        return static_cast<std::size_t>(x);
+    }
+};
+
+template<typename K>
+struct HftHash<K, std::enable_if_t<std::is_pointer_v<K>>> {
+    std::size_t operator()(K key) const noexcept {
+        size_t x = reinterpret_cast<uint64_t>(key);
+
+        x = ( x >> 3 ) | ( x << 61) ;
+        
+        x ^= x >> 33;
+        x *= 0xff51afd7ed558ccdULL;
+        x ^= x >> 33;
+        x *= 0xc4ceb9fe1a85ec53ULL;
+        x ^= x >> 33;
+        
+        return static_cast<std::size_t>(x);
+    }
+}
 
 template<typename K, typename V>
 class open_addr_hash_map {
@@ -76,7 +114,7 @@ private:
          V value;
     };
     
-    std::hash<K> hasher;
+    HftHash<K> hasher;
     std::vector<hash_map_entry> _backing_array;
 
     size_t get_slot(K key) {
