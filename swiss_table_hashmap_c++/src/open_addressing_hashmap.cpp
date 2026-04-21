@@ -57,18 +57,31 @@ public:
     }
 
 
-    void delete_key(K key) {
+    bool delete_entry(const K& key) {
 
         size_t slot = get_slot(key);
+        bool deleted = false;
 
-        for (auto it = _backing_array.begin() + slot; it != _backing_array.end(); it++) {
-            if ( it->state == entry_state::FILLED && it->key == key) {
-                it->is_filled = entry_state::DELETED;
+        auto begin = _backing_array.begin() + slot;
+        auto it = begin;
+        for (auto turn = 0; (turn == 0 || it != begin ) ; turn++) {
+            if (it->state == entry_state::EMPTY) {
                 break;
             }
-        }
-    }
+            
+            if (it->state == entry_state::FILLED && it->key == key) {
+                it->state = entry_state::DELETED;
+                deleted = true;
+                break;
+            }
 
+            if (++it == _backing_array.end()) {
+                it = _backing_array.begin();
+            }
+        }
+
+        return deleted;
+    }
 
     bool store(K key, V value) {
 
