@@ -34,7 +34,7 @@ template<typename K, typename V>
 class hash_table {
 public:
     V* get(K& key) {
-        
+        return V();
     }
 
     void remove(K& key) {
@@ -46,14 +46,16 @@ public:
     }
 
     int size() {
-        
+        return 0;
     }
 
     bool clear() {
-        
+        return false;
     }
 
     bool resize(int new_capacity) {
+        return false;
+    }
         
 //  std::vector<K> keys() const;
 //  std::vector<V> values() const;
