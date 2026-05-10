@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <functional>
 
 template <typename K, typename Enable = void>
 struct HftHash;
