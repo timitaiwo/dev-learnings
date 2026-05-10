@@ -5,8 +5,9 @@
 
 // Test Suite generated with Deepseek Expert
 
-template<typename HashMapType = open_addressing_hash_map<std::string, int>>
+template<template<typename, typename> class Hashmap>
 void run_tests() {
+    using HashMapType = Hashmap<std::string, int>;
     std::cout << "Running tests..." << std::endl;
     
     // Test 1: Basic insertion and size
