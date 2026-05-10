@@ -34,15 +34,15 @@ struct HftHash<K, std::enable_if_t<std::is_pointer_v<K>>> {
 template<typename K, typename V>
 class hash_table {
 public:
-    V* get(K& key) {
+    V* get(const K& key) {
         return V();
     }
 
-    void remove(K& key) {
+    void remove(const K& key) {
         
     }
 
-    bool insert(K& key, V& value) {
+    bool insert(const K& key, const V& value) {
         return false;
     }
 
