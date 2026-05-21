@@ -1,10 +1,9 @@
-# WIP
+# WIP - Currently Suspended 
 
 ## Open Addressing Hash Map
 The open addressing linear probing hashmap is WIP and has some bugs 
 
-
-## Swiss Table Hash Map
+## Swiss Table Hash Map (Not implemented)
 
 Implement the swiss table hashmap implemented in abseil's cpp library and described in the absl docs [here](https://abseil.io/blog/20180927-swisstables) and [here](https://abseil.io/about/design/swisstables).
 
