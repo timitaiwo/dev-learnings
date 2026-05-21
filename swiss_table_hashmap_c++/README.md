@@ -1,4 +1,4 @@
-# WIP - Currently Suspended 
+# WIP
 
 ## Open Addressing Hash Map
 The open addressing linear probing hashmap is WIP and has some bugs 
