@@ -1,4 +1,16 @@
-# WIP
+# Hashmap Implementation (WIP)
+
+The general idea is to implement two versions of a hashmap - swiss tables inspired by Google's absl one and Open Addressing Linear probing 
+
+The Key Operations for a hashmap is
+
+1. Get - extract the value of a given key 
+2. Update - update the value of a key already in memory 
+3. Delete - remove a key value pair from memory 
+4. Put - add a new key-value pair that doesn't already exist 
+5. Scan - request a range of values held by a sequentially ordered group of
+
+For most implementations, put and update are the same i.e update the value if the key exists else insert the new key-value pair.
 
 ## Open Addressing Hash Map
 The open addressing linear probing hashmap is WIP and has some bugs 
