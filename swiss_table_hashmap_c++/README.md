@@ -10,7 +10,10 @@ The Key Operations for a hashmap is
 4. Put - add a new key-value pair that doesn't already exist 
 5. Scan - request a range of values i.e. multiple consecutive keys and their values e.g. a scan operation could request all key and values between 100 and 200  
 
-For most implementations, put and update are the same i.e update the value if the key exists else insert the new key-value pair.
+For most implementations, put and update are the same operation i.e update the value if the key exists else insert the new key-value pair.
+
+put is the more expensive operation since it involved creating an object vs a simpler replace operation in update.
+
 
 ## Open Addressing Hash Map
 The open addressing linear probing hashmap is WIP and has some bugs 
@@ -24,3 +27,5 @@ The Go programming language also has a description [here](https://go.dev/blog/sw
 
 It was described in a CppCon talk recorded [here](https://www.youtube.com/watch?v=ncHmEUmJZf4)
 
+
+## Possible B-Tree implementation (musing) 
