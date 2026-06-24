@@ -8,7 +8,7 @@ The Key Operations for a hashmap is
 2. Update - update the value of a key already in memory 
 3. Delete - remove a key value pair from memory 
 4. Put - add a new key-value pair that doesn't already exist 
-5. Scan - request a range of values held by a sequentially ordered group of
+5. Scan - request a range of values i.e. multiple consecutive keys and their values e.g. a scan operation could request all key and values between 100 and 200  
 
 For most implementations, put and update are the same i.e update the value if the key exists else insert the new key-value pair.
 
